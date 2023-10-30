@@ -1,0 +1,316 @@
+Code:#include<stdlib.h>
+void insertatbeg(struct node*head);
+void insertatend(struct node*head);
+void delatbeg(struct node*head);
+void delatend(struct node*head);
+void display(struct node*head);
+void traverse(struct node*head);
+ struct node
+ {
+ int data;
+ struct node*next;
+ }*head=NULL;
+int main()
+{
+int data;
+struct Node* next;
+};
+int choice;
+clrscr();
+
+struct Node* insert(struct Node* head, int data)
+while(1)
+{
+struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+newNode-&gt;data = data;
+newNode-&gt;next = head;
+return newNode;
+}
+
+struct Node* deleteNode(struct Node* head, int key)
+printf("\n1:INSERT AT BEGINNING \t 2:INSERT AT END \t3:DELETE AT BEGINNING \t4: DELELTE AT END\t5:DISPLAY \t6:TRAVERSE \t7:EXIT\n");
+printf("ENTER THE CHOICE:");
+scanf("%d",&choice);
+
+switch(choice)
+{
+struct Node* current = head;
+struct Node* prev = NULL;
+case 1:insertatbeg(head);
+break;
+case 2:insertatend(head);
+break;
+case 3:delatbeg(head);
+break;
+case 4:delatend(head);
+break;
+case 5:display(head);
+break;
+case 6:traverse(head);
+break;
+case 7:exit(0);
+break;
+default : printf("INVALID CHOICE");
+break;
+
+if (current != NULL &amp;&amp; current-&gt;data == key) {
+head = current-&gt;next;
+free(current);
+return head;
+}
+    }
+   }
+  }
+ void insertatbeg(struct node*head)
+ {
+ struct node*newnode;
+ newnode=(struct node*)malloc(sizeof(struct node));
+ printf("ENTER THE ELEMENT TO ENTER :");
+ scanf("%d",&newnode->data);
+ head =newnode;
+ newnode->next=head;
+ }
+ void traverse(struct node*head)
+ {
+  struct node*temp;
+  int count;
+  temp=head;
+  while(temp!=NULL)
+  {
+  count++;
+  temp=temp->next;
+  }
+ printf("NUMBER OF THE NODES IS: %d",count);
+ }
+ void insertatend(struct node*head)
+ {
+ struct node*newnode,*temp;
+  newnode=(struct node*)malloc(sizeof(struct node));
+ printf("ENTER THE ELEMENT TO ENTER :");
+ scanf("%d",&newnode->data);
+ temp=head;
+  while(temp->next!=NULL)
+  {
+  temp=temp->next;
+  }
+  temp->next=newnode;
+  newnode->next=NULL;
+  return head;
+
+while (current != NULL &amp;&amp; current-&gt;data != key) {
+prev = current;
+current = current-&gt;next;
+}
+ }
+ void delatend(struct node*head)
+ {
+ struct node*temp,*prev;
+ temp=head;
+  while(temp->next!=NULL)
+  {
+  prev=temp;
+  temp=temp->next;
+  }
+  prev->next=NULL;
+  free(temp);
+  }
+ void delatbeg(struct node*head)
+ {
+ struct node*temp;
+ temp=head;
+ head=temp->next;
+ free(temp);
+ }
+ void display(struct node *head)
+ {
+ struct node *ptr;
+ ptr=head;
+ while(ptr->next!=NULL){
+ printf("%d ",ptr->data);
+ ptr=ptr->next;
+ }
+ printf("%d ",ptr->data);
+ }
+
+if (current == NULL) {
+printf(&quot;Key not found in the linked list.\n&quot;);
+return head;
+}
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+void insertatbeg(struct node*head);
+void insertatend(struct node*head);
+void delatbeg(struct node*head);
+void delatend(struct node*head);
+void display(struct node*head);
+void traverse(struct node*head);
+ struct node
+ {
+ int data;
+ struct node*next;
+ }*head=NULL;
+int main()
+{
+int choice;
+clrscr();
+
+prev-&gt;next = current-&gt;next;
+free(current);
+while(1)
+{
+
+printf("\n1:INSERT AT BEGINNING \t 2:INSERT AT END \t3:DELETE AT BEGINNING \t4: DELELTE AT END\t5:DISPLAY \t6:TRAVERSE \t7:EXIT\n");
+printf("ENTER THE CHOICE:");
+scanf("%d",&choice);
+
+switch(choice)
+{
+case 1:insertatbeg(head);
+break;
+case 2:insertatend(head);
+break;
+case 3:delatbeg(head);
+break;
+case 4:delatend(head);
+break;
+case 5:display(head);
+break;
+case 6:traverse(head);
+break;
+case 7:exit(0);
+break;
+default : printf("INVALID CHOICE");
+break;
+
+return head;
+}
+    }
+   }
+  }
+ void insertatbeg(struct node*head)
+ {
+ struct node*newnode;
+ newnode=(struct node*)malloc(sizeof(struct node));
+ printf("ENTER THE ELEMENT TO ENTER :");
+ scanf("%d",&newnode->data);
+ head =newnode;
+ newnode->next=head;
+ }
+ void traverse(struct node*head)
+ {
+  struct node*temp;
+  int count;
+  temp=head;
+  while(temp!=NULL)
+  {
+  count++;
+  temp=temp->next;
+  }
+ printf("NUMBER OF THE NODES IS: %d",count);
+ }
+ void insertatend(struct node*head)
+ {
+ struct node*newnode,*temp;
+  newnode=(struct node*)malloc(sizeof(struct node));
+ printf("ENTER THE ELEMENT TO ENTER :");
+ scanf("%d",&newnode->data);
+ temp=head;
+  while(temp->next!=NULL)
+  {
+  temp=temp->next;
+  }
+  temp->next=newnode;
+  newnode->next=NULL;
+  return head;
+
+void printList(struct Node* head) {
+struct Node* current = head;
+printf(&quot;Linked List: &quot;);
+while (current != NULL) {
+printf(&quot;%d -&gt; &quot;, current-&gt;data);
+current = current-&gt;next;
+}
+printf(&quot;NULL\n&quot;);
+}
+void quit(struct Node* head) {
+struct Node* current = head;
+while (current != NULL) {
+struct Node* temp = current;
+current = current-&gt;next;
+free(temp);
+}
+}
+int main() {
+struct Node* head = NULL;
+int choice, data;
+while (1) {
+printf(&quot;\nLinked List Operations\n&quot;);
+printf(&quot;1. Insert\n&quot;);
+printf(&quot;2. Delete\n&quot;);
+printf(&quot;3. Print\n&quot;);
+//printf(&quot;4. Quiet\n&quot;);
+printf(&quot;Enter your choice: &quot;);
+scanf(&quot;%d&quot;, &amp;choice);
+switch (choice) {
+case 1:
+printf(&quot;Enter data to insert: &quot;);
+scanf(&quot;%d&quot;, &amp;data);
+head = insert(head, data);
+break;
+case 2:
+printf(&quot;Enter data to delete: &quot;);
+ }
+ void delatend(struct node*head)
+ {
+ struct node*temp,*prev;
+ temp=head;
+  while(temp->next!=NULL)
+  {
+  prev=temp;
+  temp=temp->next;
+  }
+  prev->next=NULL;
+  free(temp);
+  }
+ void delatbeg(struct node*head)
+ {
+ struct node*temp;
+ temp=head;
+ head=temp->next;
+ free(temp);
+ }
+ void display(struct node *head)
+ {
+ struct node *ptr;
+ ptr=head;
+ while(ptr->next!=NULL){
+ printf("%d ",ptr->data);
+ ptr=ptr->next;
+ }
+ printf("%d ",ptr->data);
+ }
+
+scanf(&quot;%d&quot;, &amp;data);
+head = deleteNode(head, data);
+break;
+case 3:
+printList(head);
+break;
+case 4:
+quit(head);
+exit(0);
+default:
+printf(&quot;Invalid choice, please try again.\n&quot;);
+}
+}
+return 0;
+getch();
+}
+Conclusion :
+In summary, the provided C code and algorithm offer a basic framework for creating and
+managing a singly linked list. It includes essential functions for inserting, deleting, printing, and
+quitting, all accessible through a user-friendly menu-driven interface. This code serves as a
+foundational example for understanding linked list operations in C, providing a starting point for
+more advanced applications and demonstrating the versatility of linked lists in data
+management.
